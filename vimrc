@@ -17,21 +17,24 @@ syntax on
 
 " jump to the last position when reopening a file
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " load indentation rules and plugins according to the detected filetype.
 if has("autocmd")
-	filetype plugin indent on
+    filetype plugin indent on
 endif
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
-	source /etc/vim/vimrc.local
+    source /etc/vim/vimrc.local
 endif
 
 " Pathogen Runtime Path Manipulation
 execute pathogen#infect()
+
+" Append vim environment variables
+let $PATH .= ':~/bin'
 
 
 " ============================================================================ "
@@ -79,33 +82,38 @@ endif
 "                               Specific filetype
 " ============================================================================ "
 
-" Programming
-
 " 在80列的地方加条竖线
 autocmd FileType scheme,asm,c,python,cpp,java,ruby,scala setlocal colorcolumn=80
+
 " Automatically removing all trailing whitespace
 autocmd FileType scheme,asm,c,python,cpp,java,ruby,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" `*sc` => scala
+au BufReadPost *.sc set filetype=scala
+
 " web programming
 autocmd FileType html,css,javascript setlocal nowrap
+
 " 超过 80 个字符，自动换行(相当于加个回车)
-" autocmd FileType Markdown setlocal tw=80 fo+=Mm
+"autocmd FileType Markdown setlocal tw=80 fo+=Mm
 
 
 " ============================================================================ "
-"                               For Interface
+"                               Interface
 " ============================================================================ "
 
-" 设置启动界面大小
+" start window
 set lines=29 columns=98
-" set language(en)
+
+" language(en)
 set langmenu=en_US
 let $LANG='en_US'
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-" 关闭/开启 菜单栏
+
 "set guioptions-=m       " remove menubar
-set guioptions-=T       " remove toolbar
-" set guioptions-=r     " 不显示右侧滚动条
+set guioptions-=T        " remove toolbar
+"set guioptions-=r       " 不显示右侧滚动条
 set guioptions-=l
 
 " Set the status line options. Make it show more information.
@@ -115,6 +123,9 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\[POS=%l,%v][%p%%]\ %{strft
 " Set Color Scheme
 if has("gui_running")
     colorscheme ralor
+else
+    set t_Co=256
+    colorscheme luna_term
 endif
 
 
@@ -129,6 +140,8 @@ autocmd FileType python map <buffer> <F5> :!python3 %:p<CR>
 
 autocmd FileType c map <buffer> <F8> :!gcc -Wall %:p -o %<<CR>
 autocmd FileType c map <buffer> <F9> :!./%<<CR>
+
+autocmd FileType scala map <buffer> <F9> :!scala %:p<CR>
 
 autocmd FileType haskell map <buffer> <F9> :!ghci %:p<CR>
 "" autocmd FileType scheme map <buffer> <F9> :!guile %:p<CR>
@@ -145,8 +158,7 @@ nnoremap <F3> :TlistToggle<CR>
 "" Taglist
 let Tlist_Use_Right_Window = 1
 
-
-"" airline
+"" Airline
 let g:airline_theme='kolor'
 set laststatus=2
 let g:airline#extensions#tagbar#flags = 's'
@@ -154,15 +166,12 @@ let g:airline#extensions#tabline#enabled = 1        " emable smarter tab line
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '>'
 
-
-"" indentLine
+"" IndentLine
 "let g:indentLine_color_gui = '#A4E57E'     " for gvim
 let g:indentLine_char = '┆'     " indentLine char, '¦', '┆', '︙' or else.
 
-
 " vim2hs
 let g:haskell_conceal_wide = 1
-
 
 " vim-auto-save
 let g:auto_save = 1                 " enable AutoSave on Vim startup
@@ -170,12 +179,10 @@ let g:auto_save_no_updatetime = 1   " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 " let g:auto_save_silent = 1        " do not display the auto-save notification
 
-
 " python-syntax
 let OPTION_NAME = 1
 let python_highlight_all = 1
 let b:python_version_2 = 1
-
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/ycm_bin/conf/ycm_extra_conf.py'
@@ -207,5 +214,4 @@ let g:ycm_filetype_blacklist = {
       \ 'vimwiki' : 1,
       \ 'gitcommit' : 1,
       \}
-
 

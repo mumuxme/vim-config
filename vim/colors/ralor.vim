@@ -1,4 +1,4 @@
-" Vim color file
+" Vim(gui) color file
 " 
 " Base on: https://github.com/zeis/vim-kolor
 "
@@ -45,11 +45,11 @@ highlight PmenuThumb      guifg=#2e2d2b    guibg=#ff5fd7    gui=none
 highlight TabLine         guifg=#808080    guibg=#242322    gui=none
 highlight TablineSel      guifg=#000000    guibg=#9e9e9e    gui=none
 highlight TablineFill     guifg=#808080    guibg=#242322    gui=none
+highlight ColorColumn     guifg=NONE       guibg=#383734    gui=none
 highlight CursorColumn    guifg=NONE       guibg=#383734    gui=none
 highlight CursorLine      guifg=NONE       guibg=#000000    gui=none
-highlight ColorColumn     guifg=NONE       guibg=#383734    gui=none
-highlight Cursor          guifg=#000000    guibg=#e2e2e2    gui=none
-highlight lCursor         guifg=#000000    guibg=#e2e2e2    gui=none
+highlight Cursor          guifg=#000000    guibg=#ffff00    gui=none
+highlight lCursor         guifg=#000000    guibg=#ffff00    gui=none
 highlight Special         guifg=#ce6bd0    guibg=NONE       gui=none
 highlight Todo            guifg=#75d7d8    guibg=NONE       gui=bold
 highlight Title           guifg=#a080ea    guibg=NONE       gui=bold
@@ -77,7 +77,7 @@ highlight Number          guifg=#4a64e5    guibg=NONE      gui=none
 
 
 highlight Class           guifg=#008080    guibg=NONE      gui=bold
-"highlight Structure       guifg=#008080    guibg=NONE      gui=bold
+"highlight Structure      guifg=#008080    guibg=NONE      gui=bold
 
 highlight Keyword         guifg=#cc2f59    guibg=NONE      gui=bold
 
@@ -85,17 +85,14 @@ highlight Keyword         guifg=#cc2f59    guibg=NONE      gui=bold
 highlight Function        guifg=#f7fbfc    guibg=NONE      gui=bold
 highlight BuiltinFunc     guifg=#7B48C6    guibg=NONE      gui=bold
 
-highlight Boolean         guifg=#e6987a    guibg=NONE      gui=none 
-highlight Comment         guifg=#808080    guibg=NONE      gui=italic
-highlight Constant        guifg=#e6987a    guibg=NONE      gui=italic
-highlight Type            guifg=#a080ea    guibg=NONE      gui=bold
-highlight Identifier      guifg=#75d7d8    guibg=NONE      gui=none
-highlight PreProc         guifg=#dbc570    guibg=NONE      gui=none
+highlight Boolean         guifg=#e6987a    guibg=NONE       gui=none 
+highlight Comment         guifg=#808080    guibg=NONE       gui=italic
+highlight Constant        guifg=#e6987a    guibg=NONE       gui=italic
+highlight Type            guifg=#a080ea    guibg=NONE       gui=bold
+highlight Identifier      guifg=#75d7d8    guibg=NONE       gui=none
+highlight PreProc         guifg=#dbc570    guibg=NONE       gui=none
 
 " highlight Include
 " highlight BuiltinObj
 
 highlight pythonSelfPara  guifg=#783E54    guibg=NONE       gui=none
-
-
-
