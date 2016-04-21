@@ -1,4 +1,4 @@
-" Vim(gui) color file
+" Vim(gui) colorscheme
 " 
 " Base on: https://github.com/zeis/vim-kolor
 "
