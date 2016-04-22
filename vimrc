@@ -77,6 +77,8 @@ if (has("gui_running"))
     " set guifontwide=AR\ PL\ UKai\ CN\ 14        " 中文字体
 endif
 
+set timeoutlen=1000 ttimeoutlen=0    " fix esc delay in vim <https://www.johnhawthorn.com/2012/09/vi-escape-delays>
+
 
 " ============================================================================ "
 "                               Specific filetype
@@ -116,11 +118,15 @@ set guioptions-=T        " remove toolbar
 "set guioptions-=r       " 不显示右侧滚动条
 set guioptions-=l
 
+"""""""""""""""""""""""""""""""""""""""
 " Set the status line options. Make it show more information.
+"""""""""""""""""""""""""""""""""""""""
 set laststatus=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\[POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
+"""""""""""""""""""""""""""""""""""""""
 " Set Color Scheme
+"""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
     colorscheme ralor
 else
@@ -214,4 +220,3 @@ let g:ycm_filetype_blacklist = {
       \ 'vimwiki' : 1,
       \ 'gitcommit' : 1,
       \}
-

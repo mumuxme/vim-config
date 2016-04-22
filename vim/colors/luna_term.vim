@@ -109,11 +109,12 @@ hi SignColumn   ctermfg=NONE ctermbg=234  cterm=NONE
 " on more awesome, and fun to work with !)
 " ---------------------------------------------------------------------
 " Python Specifics
-hi pythonDot                ctermfg=11 ctermbg=NONE cterm=NONE
+hi pythonDot                ctermfg=011 ctermbg=NONE cterm=NONE
 hi pythonParameters         ctermfg=149 ctermbg=NONE cterm=NONE
 hi pythonClassParameters    ctermfg=149 ctermbg=NONE cterm=NONE
-hi pythonClass              ctermfg=37  ctermbg=NONE cterm=NONE
-hi pythonSelfPara           ctermfg=169   ctermbg=NONE cterm=NONE
+hi pythonClass              ctermfg=035 ctermbg=NONE cterm=NONE
+hi pythonBuiltinFunc        ctermfg=129 ctermbg=NONE cterm=NONE
+hi pythonSelfPara           ctermfg=169 ctermbg=NONE cterm=NONE
 "
 " ---------------------------------------------------------------------
 "  Ruby Specifics
