@@ -40,6 +40,7 @@ Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
     * code completion engine for Vim
     * Install: see below (for more detail, pls visit ycm home page)
+- [Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
 
 
 ### Instal YouCompleteMe

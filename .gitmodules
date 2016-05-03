@@ -22,3 +22,6 @@
 [submodule "_plugin/ycm"]
 	path = _plugin/ycm
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule "vim/bundle/jinja2-syntax"]
+	path = vim/bundle/jinja2-syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax
