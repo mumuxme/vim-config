@@ -4,8 +4,7 @@ VIM/Gvim rc
 Note:
 
 - vim version: 7.4 or later.
-- For debian/linux(jessie) (Other **may** also be ok)
-- `youcompleteme` may need recompile.(`ycm_bin`(under `vim/bundle`) is my own build on debian jessie.)
+- os: debian (jessie)
 
 
 Install
@@ -38,12 +37,12 @@ Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
 - [vim-auto-save](https://github.com/vim-scripts/vim-auto-save)
 - [vim-scala](https://github.com/derekwyatt/vim-scala)
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-    * code completion engine for Vim
-    * Install: see below (for more detail, pls visit ycm home page)
 - [Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
 
 
 ### Instal YouCompleteMe
+
+[ycm homepage](https://github.com/Valloric/YouCompleteMe)
 
 #### compile
 
@@ -84,5 +83,5 @@ cmake --build . --target ycm_core --config Release
 
 Then enjoy it. 
 
-(After compiling, I run `find . -type f -name '.git*' -exec rm {} +`, rename it to `ycm_bin` and move it to `vim/bundle`)
+(After compiling, just `find . -type f -name '.git*' -exec rm {} +`, and rename it to `ycm_bin` and move it to `vim/bundle`)
 
