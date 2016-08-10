@@ -88,7 +88,7 @@ set timeoutlen=1000 ttimeoutlen=0    " fix esc delay in vim <https://www.johnhaw
 autocmd FileType scheme,asm,c,python,cpp,java,ruby,scala setlocal colorcolumn=80
 
 " Automatically removing all trailing whitespace
-autocmd FileType scheme,asm,c,python,cpp,java,ruby,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType scheme,sml,asm,c,python,cpp,java,ruby,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " `*sc` => scala
 au BufReadPost *.sc set filetype=scala
@@ -149,7 +149,10 @@ autocmd FileType c map <buffer> <F9> :!./%<<CR>
 
 autocmd FileType scala map <buffer> <F9> :!scala %:p<CR>
 
+autocmd FileType sml map <buffer> <F9> :!sml %:p<CR>
+
 autocmd FileType haskell map <buffer> <F9> :!ghci %:p<CR>
+
 "" autocmd FileType scheme map <buffer> <F9> :!guile %:p<CR>
 
 "" Plugin
