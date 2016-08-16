@@ -149,7 +149,7 @@ autocmd FileType c map <buffer> <F9> :!./%<<CR>
 
 autocmd FileType scala map <buffer> <F9> :!scala %:p<CR>
 
-autocmd FileType sml map <buffer> <F9> :!sml %:p<CR>
+autocmd FileType sml map <buffer> <F9> :!rlwrap sml %:p<CR>
 
 autocmd FileType haskell map <buffer> <F9> :!ghci %:p<CR>
 
