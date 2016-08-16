@@ -30,15 +30,13 @@ Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
     * A vim plugin to display the indention levels with thin vertical lines.
 - [taglist](https://github.com/vim-scripts/taglist.vim)
     * require `exuberant-ctags`
-- [vim2hs](https://github.com/dag/vim2hs)
-    * For Haskell
 - [vim-airline](https://github.com/vim-airline/vim-airline)
 - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 - [vim-auto-save](https://github.com/vim-scripts/vim-auto-save)
 - [vim-scala](https://github.com/derekwyatt/vim-scala)
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 - [Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
-
+- [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
 
 ### Instal YouCompleteMe
 

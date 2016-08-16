@@ -4,9 +4,6 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim
-[submodule "vim/bundle/vim2hs"]
-	path = vim/bundle/vim2hs
-	url = https://github.com/dag/vim2hs
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
@@ -25,3 +22,6 @@
 [submodule "vim/bundle/jinja2-syntax"]
 	path = vim/bundle/jinja2-syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax
+[submodule "vim/bundle/haskell-vim"]
+	path = vim/bundle/haskell-vim
+	url = https://github.com/neovimhaskell/haskell-vim
