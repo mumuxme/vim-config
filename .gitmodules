@@ -25,3 +25,6 @@
 [submodule "vim/bundle/haskell-vim"]
 	path = vim/bundle/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim
+[submodule "vim/bundle/vim-licenses"]
+	path = vim/bundle/vim-licenses
+	url = https://github.com/antoyo/vim-licenses
