@@ -88,7 +88,7 @@ set timeoutlen=1000 ttimeoutlen=0    " fix esc delay in vim <https://www.johnhaw
 autocmd FileType scheme,asm,c,python,cpp,java,ruby,scala setlocal colorcolumn=80
 
 " Automatically removing all trailing whitespace
-autocmd FileType scheme,sml,asm,c,python,cpp,java,ruby,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType haskell,scheme,sml,asm,c,python,cpp,java,ruby,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " `*sc` => scala
 au BufReadPost *.sc set filetype=scala
@@ -179,9 +179,6 @@ let g:airline#extensions#tabline#left_alt_sep = '>'
 "let g:indentLine_color_gui = '#A4E57E'     " for gvim
 let g:indentLine_char = '┆'     " indentLine char, '¦', '┆', '︙' or else.
 
-" vim2hs
-let g:haskell_conceal_wide = 1
-
 " vim-auto-save
 let g:auto_save = 1                 " enable AutoSave on Vim startup
 let g:auto_save_no_updatetime = 1   " do not change the 'updatetime' option
@@ -223,3 +220,6 @@ let g:ycm_filetype_blacklist = {
       \ 'vimwiki' : 1,
       \ 'gitcommit' : 1,
       \}
+
+" hasell-vim
+let g:haskell_indent_in = 0
