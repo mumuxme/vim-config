@@ -36,8 +36,10 @@ Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
 - [vim-scala](https://github.com/derekwyatt/vim-scala)
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 - [Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
-- [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
 - [vim-licenses](https://github.com/antoyo/vim-licenses)
+- vim-haskell
+    * combine [vim-haskell-indent](https://github.com/itchyny/vim-haskell-indent) and [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
+
 
 ### Instal YouCompleteMe
 
