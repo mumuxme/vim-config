@@ -223,3 +223,4 @@ let g:ycm_filetype_blacklist = {
 
 " hasell-vim
 let g:haskell_indent_in = 0
+let g:haskell_indent_if = 2
