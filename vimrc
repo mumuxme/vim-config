@@ -151,7 +151,7 @@ autocmd FileType scala map <buffer> <F9> :!scala %:p<CR>
 
 autocmd FileType sml map <buffer> <F9> :!rlwrap sml %:p<CR>
 
-autocmd FileType haskell map <buffer> <F9> :!ghci %:p<CR>
+autocmd FileType haskell map <buffer> <F9> :!cabal exec ghci %:p<CR>
 
 "" autocmd FileType scheme map <buffer> <F9> :!guile %:p<CR>
 
@@ -222,5 +222,5 @@ let g:ycm_filetype_blacklist = {
       \}
 
 " hasell-vim
-let g:haskell_indent_in = 0
-let g:haskell_indent_if = 2
+"let g:haskell_indent_in = 0
+"let g:haskell_indent_if = 2
