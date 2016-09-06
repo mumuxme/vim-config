@@ -39,6 +39,7 @@ Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
 - [vim-licenses](https://github.com/antoyo/vim-licenses)
 - vim-haskell
     * combine [vim-haskell-indent](https://github.com/itchyny/vim-haskell-indent) and [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
+- [vim-racket](https://github.com/wlangstroth/vim-racket)
 
 
 ### Instal YouCompleteMe

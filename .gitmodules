@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vim-licenses"]
 	path = vim/bundle/vim-licenses
 	url = https://github.com/antoyo/vim-licenses
+[submodule "vim/bundle/vim-racket"]
+	path = vim/bundle/vim-racket
+	url = https://github.com/wlangstroth/vim-racket

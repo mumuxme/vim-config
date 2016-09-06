@@ -147,12 +147,11 @@ autocmd FileType c map <buffer> <F8> :!gcc -Wall %:p -o %<<CR>
 autocmd FileType c map <buffer> <F9> :!./%<<CR>
 
 autocmd FileType scala map <buffer> <F9> :!scala %:p<CR>
-
 autocmd FileType sml map <buffer> <F9> :!rlwrap sml %:p<CR>
-
 autocmd FileType haskell map <buffer> <F9> :!cabal exec ghci %:p<CR>
-
 ""autocmd FileType scheme map <buffer> <F9> :!guile %:p<CR>
+""autocmd FileType racket map <buffer> <F9> :!racket -f %:p -il xrepl<CR>
+autocmd FileType racket map <buffer> <F9> :!racket %:p<CR>
 
 nnoremap > gt       " Next tab
 nnoremap < gT       " Prior tab
