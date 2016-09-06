@@ -1,7 +1,8 @@
 " =============================================================================
-" Fork from <https://github.com/itchyny/vim-haskell-indent>
-"
+" Filename: indent/haskell.vim
+" Author: itchyny
 " License: MIT License
+" Last Change: 2016/08/23 09:07:13.
 " =============================================================================
 
 if exists('b:did_indent')
@@ -131,7 +132,7 @@ function! GetHaskellIndent() abort
     if line =~# '\<case\>.*\<of\>\s*[[:alnum:](]'
       return match(line, '\<case\>.*\<of\>\s*\zs\S')
     else
-      return match(line, '.*\<case\>\s*\zs') - 3
+      return match(line, '.*\<case\>\s*\zs')
     endif
   endif
 

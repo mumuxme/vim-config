@@ -139,7 +139,6 @@ endif
 "                               hot_key(shortcut_key)
 " ============================================================================ "
 
-"" Programming
 autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
 autocmd FileType python map <buffer> <F9> :!python %:p<CR>
 autocmd FileType python map <buffer> <F5> :!python3 %:p<CR>
@@ -153,7 +152,10 @@ autocmd FileType sml map <buffer> <F9> :!rlwrap sml %:p<CR>
 
 autocmd FileType haskell map <buffer> <F9> :!cabal exec ghci %:p<CR>
 
-"" autocmd FileType scheme map <buffer> <F9> :!guile %:p<CR>
+""autocmd FileType scheme map <buffer> <F9> :!guile %:p<CR>
+
+nnoremap > gt       " Next tab
+nnoremap < gT       " Prior tab
 
 "" Plugin
 " taglist
@@ -222,5 +224,5 @@ let g:ycm_filetype_blacklist = {
       \}
 
 " hasell-vim
-"let g:haskell_indent_in = 0
-"let g:haskell_indent_if = 2
+let g:haskell_indent_in = 0
+let g:haskell_indent_if = 2
