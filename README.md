@@ -42,7 +42,7 @@ Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
 - [vim-racket](https://github.com/wlangstroth/vim-racket)
 
 
-### Instal YouCompleteMe
+### Install YouCompleteMe
 
 [ycm homepage](https://github.com/Valloric/YouCompleteMe)
 
