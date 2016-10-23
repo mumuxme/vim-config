@@ -83,7 +83,7 @@ Compile the libraries: (you can ignore `--config Release` on linux)
 cmake --build . --target ycm_core --config Release
 ```
 
-Then enjoy it. 
+Then enjoy it.
 
 (After compiling, just `find . -type f -name '.git*' -exec rm {} +`, and rename it to `ycm_bin` and move it to `vim/bundle`)
 
