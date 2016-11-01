@@ -105,7 +105,7 @@ autocmd FileType html,css,javascript setlocal nowrap
 " ============================================================================ "
 
 " start window
-set lines=29 columns=98
+""set lines=29 columns=98
 
 " language(en)
 set langmenu=en_US
