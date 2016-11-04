@@ -249,6 +249,6 @@ set ttimeoutlen=150
 "退出插入模式
 autocmd InsertLeave * call Fcitx2en()
 "进入插入模式
-autocmd InsertEnter * call Fcitx2zh()
+""autocmd InsertEnter * call Fcitx2zh()
 "##### auto fcitx end ######
 
