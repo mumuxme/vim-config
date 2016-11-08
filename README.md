@@ -25,7 +25,6 @@ Plugins
 
 Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
 
-
 - [IndentLine](https://github.com/Yggdroot/indentLine)
     * A vim plugin to display the indention levels with thin vertical lines.
 - [taglist](https://github.com/vim-scripts/taglist.vim)
@@ -40,6 +39,7 @@ Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
 - vim-haskell
     * combine [vim-haskell-indent](https://github.com/itchyny/vim-haskell-indent) and [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
 - [vim-racket](https://github.com/wlangstroth/vim-racket)
+- [nerdtree](https://github.com/scrooloose/nerdtree)
 
 
 ### Install YouCompleteMe

@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-racket"]
 	path = vim/bundle/vim-racket
 	url = https://github.com/wlangstroth/vim-racket
+[submodule "/home/mumu/git/github/vim-config/vim/bundle/nerdtree"]
+	path = /home/mumu/git/github/vim-config/vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree

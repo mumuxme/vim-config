@@ -159,7 +159,8 @@ nnoremap < gT       " Prior tab
 "" Plugin
 " taglist
 nnoremap <F3> :TlistToggle<CR>
-
+" NERDTree
+map <F2> :NERDTreeToggle<CR>
 
 " ============================================================================ "
 "                                   plugin
