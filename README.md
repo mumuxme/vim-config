@@ -1,27 +1,44 @@
 VIM/Gvim rc
 ===========
 
-Note:
-
 - vim version: 7.4 or later.
 - os: debian (jessie)
 
 
-Install
---------
+## Dependencies
 
-`git submodule update --init` (you may NOT use `--recursive`)
+```
+sudo apt-get install exuberant-ctags
 
-Rename:
+git submodule update --init
+```
 
-- vim --> .vim
-- vimrc --> .vimrc
+#### Compile YouCompleteMe
 
-move all to your `home` directory.
+Download YouCompleteMe from [ycm homepage](https://github.com/Valloric/YouCompleteMe). 
+
+```
+sudo apt-get install build-essential cmake python-dev python3-dev
+
+cd YouCompleteMe
+git submodule update --init --recursive
+
+./install.py --clang-completer
+```
+
+move `YouCompleteMe` to `vim/bundle/`.
 
 
-Plugins
---------
+## Install
+
+```
+cp -r vim ~/.vim
+cp vimrc ~/.vimrc
+cp ycm_extra_conf.py ~/.ycm_extra_conf.py
+```
+
+
+## Plugins
 
 Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
 
@@ -40,50 +57,4 @@ Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
     * combine [vim-haskell-indent](https://github.com/itchyny/vim-haskell-indent) and [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
 - [vim-racket](https://github.com/wlangstroth/vim-racket)
 - [nerdtree](https://github.com/scrooloose/nerdtree)
-
-
-### Install YouCompleteMe
-
-[ycm homepage](https://github.com/Valloric/YouCompleteMe)
-
-#### compile
-
-Download the latest version of `libclang` from <http://llvm.org/releases/download.html> (choose Pre-Built Binaries), extract and rename to `clang`(for convenience).
-
-Install `cmake` and python dev
-
-`apt-get install cmake python-dev python3-dev`
-
-Then `mkdir ycm_build`, now suppose the dierctory tree just as the following:
-
-```
-├── test
-│   ├── clang
-│   ├── ycm_build
-│   └── YouCompleteMe
-```
-
-Update submodule:
-
-```
-cd YouCompleteMe
-git submodule update --init --recursive
-```
-
-Generator build file:
-
-```
-cd ../ycm_build
-cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=../clang . ../YouCompleteMe/third_party/ycmd/cpp
-```
-
-Compile the libraries: (you can ignore `--config Release` on linux)
-
-```
-cmake --build . --target ycm_core --config Release
-```
-
-Then enjoy it.
-
-(After compiling, just `find . -type f -name '.git*' -exec rm {} +`, and rename it to `ycm_bin` and move it to `vim/bundle`)
 

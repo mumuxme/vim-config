@@ -41,12 +41,13 @@ let $PATH .= ':~/bin'
 "                               Default setting
 " ============================================================================ "
 
+set wrap            " 设置自动折行
+set expandtab       " 使用空格表示缩进（代替制表符）
+
 set tabstop=4       " setting tab to 4 space
 set softtabstop=4   " 编辑模式时退格键退回缩进长度
-set wrap            " 设置自动折行
 set shiftwidth=4    " 每级缩进长度
-set expandtab       " 使用空格表示缩进（代替制表符）
-" set list          " 显示 Tab 和 空格键, 回车
+set autoindent
 set number          " show lines
 set showcmd		    " Show (partial) command in status line.
 set showmatch		" Show matching brackets.
@@ -56,7 +57,7 @@ set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
 set mouse=a		    " Enable mouse usage (all modes)
-set autoindent
+
 set ruler           " 在状态行上显示光标所在位置的行号和列号
 set errorbells
 set showcmd
@@ -69,6 +70,7 @@ set autochdir           " 打开文件时， 自动改变当前工作目录
 set foldmethod=indent   " 根据缩进折叠
 set foldlevel=99        " 默认展开所有代码
 
+" set list          " 显示 Tab 和 空格键, 回车
 " font and enconding
 set encoding=utf-8
 if (has("gui_running"))
@@ -84,17 +86,17 @@ set timeoutlen=1000 ttimeoutlen=0    " fix esc delay in vim <https://www.johnhaw
 "                               Specific filetype
 " ============================================================================ "
 
+" `*sc` => scala
+au BufReadPost *.sc set filetype=scala
+
 " 在80列的地方加条竖线
 autocmd FileType scheme,asm,c,python,cpp,java,ruby,scala setlocal colorcolumn=80
 
 " Automatically removing all trailing whitespace
 autocmd FileType haskell,scheme,sml,asm,c,python,cpp,java,ruby,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" `*sc` => scala
-au BufReadPost *.sc set filetype=scala
-
-" web programming
 autocmd FileType html,css,javascript setlocal nowrap
+autocmd FileType ruby setlocal sw=2 sts=2 ts=8
 
 " 超过 80 个字符，自动换行(相当于加个回车)
 "autocmd FileType Markdown setlocal tw=80 fo+=Mm
@@ -156,11 +158,17 @@ autocmd FileType racket map <buffer> <F9> :!racket %:p<CR>
 nnoremap > gt       " Next tab
 nnoremap < gT       " Prior tab
 
+" Search for visually selected text.
+" visually select => type `//` to search (press `n` to search for the next)
+" http://vim.wikia.com/wiki/Search_for_visually_selected_text
+vnoremap // y/<C-R>"<CR>
+
 "" Plugin
 " taglist
 nnoremap <F3> :TlistToggle<CR>
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
+
 
 " ============================================================================ "
 "                                   plugin
@@ -172,10 +180,14 @@ let Tlist_Use_Right_Window = 1
 "" Airline
 let g:airline_theme='kolor'
 set laststatus=2
-let g:airline#extensions#tagbar#flags = 's'
 let g:airline#extensions#tabline#enabled = 1        " emable smarter tab line
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '>'
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
+"let g:airline_left_sep = '▶'
+"let g:airline#extensions#tagbar#flags = 's'
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '>'
 
 "" IndentLine
 "let g:indentLine_color_gui = '#A4E57E'     " for gvim
@@ -193,7 +205,7 @@ let python_highlight_all = 1
 let b:python_version_2 = 1
 
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/ycm_bin/conf/ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_error_symbol='>>'
 let g:ycm_warning_symbol='>*'
 
@@ -250,6 +262,6 @@ set ttimeoutlen=150
 "退出插入模式
 autocmd InsertLeave * call Fcitx2en()
 "进入插入模式
-""autocmd InsertEnter * call Fcitx2zh()
+"autocmd InsertEnter * call Fcitx2zh()
 "##### auto fcitx end ######
 

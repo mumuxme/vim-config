@@ -1,4 +1,4 @@
-
 *~
 *.pyc
-ycm_bin
+ycm_bin/
+YouCompleteMe/

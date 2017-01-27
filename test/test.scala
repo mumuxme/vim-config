@@ -181,4 +181,3 @@ class ScalaClass(i: Int = 12, b: Trait[A, Trait[B, C]]) extends B with SomeTrait
   val soManyEscapes = f"""\\\"\u0031\n\b\r\f\t""" // and a comment
   val soManyEscapes = "\\\"\u0031\n\b\r\f\t" // and a comment
 }
-

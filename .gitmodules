@@ -4,6 +4,7 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim
+	ignore = dirty
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
@@ -13,6 +14,7 @@
 [submodule "vim/bundle/vim-auto-save"]
 	path = vim/bundle/vim-auto-save
 	url = https://github.com/vim-scripts/vim-auto-save
+	ignore = dirty
 [submodule "vim/bundle/vim-scala"]
 	path = vim/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala
@@ -25,9 +27,10 @@
 [submodule "vim/bundle/vim-licenses"]
 	path = vim/bundle/vim-licenses
 	url = https://github.com/antoyo/vim-licenses
+	ignore = dirty
 [submodule "vim/bundle/vim-racket"]
 	path = vim/bundle/vim-racket
 	url = https://github.com/wlangstroth/vim-racket
-[submodule "/home/mumu/git/github/vim-config/vim/bundle/nerdtree"]
-	path = /home/mumu/git/github/vim-config/vim/bundle/nerdtree
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
