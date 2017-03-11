@@ -12,6 +12,16 @@ runtime! debian.vim
 
 set nocompatible
 
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
 " enables syntax highlighting by default.
 syntax on
 
@@ -31,7 +41,7 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " Pathogen Runtime Path Manipulation
-execute pathogen#infect()
+"execute pathogen#infect()
 
 " Append vim environment variables
 let $PATH .= ':~/bin'
