@@ -1,60 +1,42 @@
-VIM/Gvim rc
-===========
+Vimrc
+======
 
-- vim version: 7.4 or later.
-- os: debian (jessie)
+- os: debian
+- my vim version: 8.0
 
+#### NOTE
 
-## Dependencies
+- `taglist` plugin required `exuberant-ctags`.
 
-```
-sudo apt-get install exuberant-ctags
+#### VundleVim
 
-git submodule update --init
-```
+- Install: `:PluginInstall`
+- Update : `:PluginUpdate`
+- Clean  : `:PluginClean`
 
-#### Compile YouCompleteMe
+#### Vim-airline
 
-Download YouCompleteMe from [ycm homepage](https://github.com/Valloric/YouCompleteMe). 
+`vim-airline` may need patched fonts, and you may want to use a patched font for your terminal. (NOTE: This is optional.)
+See: [powerline/fonts](https://github.com/powerline/fonts)
 
-```
-sudo apt-get install build-essential cmake python-dev python3-dev
+If you want to get more icons, see: [vim-devicons](https://github.com/ryanoasis/vim-devicons) and [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
-cd YouCompleteMe
-git submodule update --init --recursive
-
-./install.py --clang-completer
-```
-
-move `YouCompleteMe` to `vim/bundle/`.
-
-
-## Install
+You can just download `nerd-fonts`, and run: (you may not need `powerline/fonts` at all.)
 
 ```
-cp -r vim ~/.vim
-cp vimrc ~/.vimrc
-cp ycm_extra_conf.py ~/.ycm_extra_conf.py
+./install.sh DejaVuSansMono
 ```
 
+#### Haskell
 
-## Plugins
+- [neco-ghc](https://github.com/eagletmt/neco-ghc): ghc-mod completion
+- [ghcmod-vim](https://github.com/eagletmt/ghcmod-vim)
+- [stylish-haskell](https://github.com/jaspervdj/stylish-haskell)
+- [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
 
-Use [pathogen](https://github.com/tpope/vim-pathogen) to manage plugins.
+You need [vimproc.vim](https://github.com/Shougo/vimproc.vim) installed, see: [Manual Install](https://github.com/Shougo/vimproc.vim#manual-install)
 
-- [IndentLine](https://github.com/Yggdroot/indentLine)
-    * A vim plugin to display the indention levels with thin vertical lines.
-- [taglist](https://github.com/vim-scripts/taglist.vim)
-    * require `exuberant-ctags`
-- [vim-airline](https://github.com/vim-airline/vim-airline)
-- [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-- [vim-auto-save](https://github.com/vim-scripts/vim-auto-save)
-- [vim-scala](https://github.com/derekwyatt/vim-scala)
-- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-- [Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
-- [vim-licenses](https://github.com/antoyo/vim-licenses)
-- vim-haskell
-    * combine [vim-haskell-indent](https://github.com/itchyny/vim-haskell-indent) and [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
-- [vim-racket](https://github.com/wlangstroth/vim-racket)
-- [nerdtree](https://github.com/scrooloose/nerdtree)
+1. Clone vimproc.vim
+2. run `make`
+3. Copy `autoload`, `lib` and `plugin` to `~/.vim/`
 

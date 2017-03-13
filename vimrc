@@ -12,15 +12,47 @@ runtime! debian.vim
 
 set nocompatible
 
+"=================================
+" Plugin
+"=================================
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call vundle#begin('~/.vim/plg')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ryanoasis/vim-devicons'
+
+Plugin 'Yggdroot/indentLine'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'vim-scripts/vim-auto-save'
+Plugin 'ervandew/supertab'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'tpope/vim-fugitive'     " a git wrapper, this can add some infos to airline
+Plugin 'antoyo/vim-licenses'
+""Plugin 'vim-syntastic/syntastic'
+
+""Plugin 'wlangstroth/vim-racket'
+
+" haskell
+Plugin 'eagletmt/neco-ghc'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'jaspervdj/stylish-haskell'
+Plugin 'neovimhaskell/haskell-vim'    " Syntax Highlighting and Indentation
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+"=================================
+" Plugin end
+"=================================
 
 " enables syntax highlighting by default.
 syntax on
@@ -40,12 +72,8 @@ if filereadable("/etc/vim/vimrc.local")
     source /etc/vim/vimrc.local
 endif
 
-" Pathogen Runtime Path Manipulation
-"execute pathogen#infect()
-
 " Append vim environment variables
 let $PATH .= ':~/bin'
-
 
 " ============================================================================ "
 "                               Default setting
@@ -59,14 +87,14 @@ set softtabstop=4   " 编辑模式时退格键退回缩进长度
 set shiftwidth=4    " 每级缩进长度
 set autoindent
 set number          " show lines
-set showcmd		    " Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
+set showcmd		      " Show (partial) command in status line.
+set showmatch		    " Show matching brackets.
+set ignorecase		  " Do case insensitive matching
+set smartcase		    " Do smart case matching
+set incsearch		    " Incremental search
+set autowrite		    " Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
-set mouse=a		    " Enable mouse usage (all modes)
+set mouse=a		      " Enable mouse usage (all modes)
 
 set ruler           " 在状态行上显示光标所在位置的行号和列号
 set errorbells
@@ -84,8 +112,8 @@ set foldlevel=99        " 默认展开所有代码
 " font and enconding
 set encoding=utf-8
 if (has("gui_running"))
-    "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 14
-    set guifont=DejaVu\ Sans\ Mono\ 14
+    set guifont=DejaVuSansMonoForPowerline\ Nerd\ Font\ 13
+    "set guifont=DejaVu\ Sans\ Mono\ 14
     " set guifontwide=AR\ PL\ UKai\ CN\ 14        " 中文字体
 endif
 
@@ -100,7 +128,7 @@ set timeoutlen=1000 ttimeoutlen=0    " fix esc delay in vim <https://www.johnhaw
 au BufReadPost *.sc set filetype=scala
 
 " 在80列的地方加条竖线
-autocmd FileType scheme,asm,c,python,cpp,java,ruby,scala setlocal colorcolumn=80
+autocmd FileType haskell,scheme,asm,c,python,cpp,java,ruby,scala setlocal colorcolumn=80
 
 " Automatically removing all trailing whitespace
 autocmd FileType haskell,scheme,sml,asm,c,python,cpp,java,ruby,scala autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -146,7 +174,6 @@ else
     colorscheme luna_term
 endif
 
-
 " ============================================================================ "
 "                               hot_key(shortcut_key)
 " ============================================================================ "
@@ -158,9 +185,13 @@ autocmd FileType python map <buffer> <F5> :!python3 %:p<CR>
 autocmd FileType c map <buffer> <F8> :!gcc -Wall %:p -o %<<CR>
 autocmd FileType c map <buffer> <F9> :!./%<<CR>
 
-autocmd FileType scala map <buffer> <F9> :!scala %:p<CR>
-autocmd FileType sml map <buffer> <F9> :!rlwrap sml %:p<CR>
+autocmd FileType haskell map <buffer> <F7> :%!stylish-haskell<CR>
 autocmd FileType haskell map <buffer> <F9> :!cabal exec ghci %:p<CR>
+
+autocmd FileType scala map <buffer> <F9> :!scala %:p<CR>
+
+autocmd FileType sml map <buffer> <F9> :!rlwrap sml %:p<CR>
+
 ""autocmd FileType scheme map <buffer> <F9> :!guile %:p<CR>
 autocmd FileType racket map <buffer> <F8> :!racket -f %:p -il xrepl<CR>
 autocmd FileType racket map <buffer> <F9> :!racket %:p<CR>
@@ -173,84 +204,88 @@ nnoremap < gT       " Prior tab
 " http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap // y/<C-R>"<CR>
 
-"" Plugin
-" taglist
-nnoremap <F3> :TlistToggle<CR>
-" NERDTree
+" plugin
 map <F2> :NERDTreeToggle<CR>
-
+nnoremap <F3> :TlistToggle<CR>
 
 " ============================================================================ "
-"                                   plugin
+"                                plugin conf
 " ============================================================================ "
-
-"" Taglist
-let Tlist_Use_Right_Window = 1
 
 "" Airline
 let g:airline_theme='kolor'
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1        " emable smarter tab line
+let g:airline#extensions#tabline#enabled = 1        " enable smarter tab line
+let g:airline_powerline_fonts = 1
 "if !exists('g:airline_symbols')
-"    let g:airline_symbols = {}
+"  let g:airline_symbols = {}
 "endif
+"let g:airline_symbols.space = "\ua0"
 "let g:airline_left_sep = '▶'
 "let g:airline#extensions#tagbar#flags = 's'
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '>'
+
+"" Taglist
+let Tlist_Use_Right_Window = 1
 
 "" IndentLine
 "let g:indentLine_color_gui = '#A4E57E'     " for gvim
 let g:indentLine_char = '┆'     " indentLine char, '¦', '┆', '︙' or else.
 
-" vim-auto-save
+"" Supertab
+" from top to bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+"" vim-auto-save
 let g:auto_save = 1                 " enable AutoSave on Vim startup
 let g:auto_save_no_updatetime = 1   " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
-" let g:auto_save_silent = 1        " do not display the auto-save notification
+"let g:auto_save_silent = 1        " do not display the auto-save notification
 
-" python-syntax
-let OPTION_NAME = 1
-let python_highlight_all = 1
-let b:python_version_2 = 1
+"" Neocomplete
+" see: https://github.com/Shougo/neocomplete.vim#configuration-examples
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-" YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_error_symbol='>>'
-let g:ycm_warning_symbol='>*'
+"" hasell
+"let g:ghcmod_hlint_options = ['--ignore=Redundant $']
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+"autocmd BufWritePost *.hs call s:check_and_lint()
+"function! s:check_and_lint()
+"  let l:qflist = ghcmod#make('check')
+"  call extend(l:qflist, ghcmod#make('lint'))
+"  call setqflist(l:qflist)
+"  cwindow
+"  if empty(l:qflist)
+"    echo "No errors found"
+"  endif
+"endfunction
+" haskell-vim
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax = 1
 
-let g:ycm_complete_in_comments=1
+" ============================================================================ "
+"                                   other
+" ============================================================================ "
 
-"let g:ycm_confirm_extra_conf=0         " 不显示开启vim时检查ycm_extra_conf文件的信息
-"let g:ycm_cache_omnifunc=0             " 每次重新生成匹配项，禁止缓存匹配项
-
-"nnoremap <F6> :YcmForceCompileAndDiagnostics<CR>	"force recomile with syntastic
-
-" Omni-Completion tip window close when movement in insert mode
-"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-" Omni-Completion tip window when leaving insert mode
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'unite' : 1,
-      \ 'text' : 1,
-      \ 'vimwiki' : 1,
-      \ 'gitcommit' : 1,
-      \}
-
-" hasell-vim
-let g:haskell_indent_in = 0
-let g:haskell_indent_if = 2
-
+" ========== auto fcitx ==========
 "From: https://wiki.archlinux.org/index.php/Fcitx_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#Vim
-"##### auto fcitx  ###########
 let g:input_toggle = 1
 function! Fcitx2en()
    let s:input_status = system("fcitx-remote")
@@ -273,5 +308,4 @@ set ttimeoutlen=150
 autocmd InsertLeave * call Fcitx2en()
 "进入插入模式
 "autocmd InsertEnter * call Fcitx2zh()
-"##### auto fcitx end ######
-
+" ========== auto fcitx end ==========

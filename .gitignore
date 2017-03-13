@@ -1,4 +1,7 @@
 *~
 *.pyc
-ycm_bin/
-YouCompleteMe/
+vim/plg/
+
+vim/autoload
+vim/lib
+vim/plugin
