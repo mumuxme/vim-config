@@ -4,17 +4,30 @@ Vimrc
 - os: debian
 - my vim version: 8.0
 
-#### NOTE
 
-- `taglist` plugin required `exuberant-ctags`.
+## NOTE
 
-#### VundleVim
+- Need `exuberant-ctags` installed.
 
-- Install: `:PluginInstall`
-- Update : `:PluginUpdate`
-- Clean  : `:PluginClean`
 
-#### Vim-airline
+## Vim-plug
+
+See: <https://github.com/junegunn/vim-plug>
+
+### Commands
+
+| Command                             | Description                                                        |
+| ----------------------------------- | ------------------------------------------------------------------ |
+| `PlugInstall [name ...] [#threads]` | Install plugins                                                    |
+| `PlugUpdate [name ...] [#threads]`  | Install or update plugins                                          |
+| `PlugClean[!]`                      | Remove unused directories (bang version will clean without prompt) |
+| `PlugUpgrade`                       | Upgrade vim-plug itself                                            |
+| `PlugStatus`                        | Check the status of plugins                                        |
+| `PlugDiff`                          | Examine changes from the previous update and the pending changes   |
+| `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins  |
+
+
+## Vim-airline
 
 `vim-airline` may need patched fonts, and you may want to use a patched font for your terminal. (NOTE: This is optional.)
 See: [powerline/fonts](https://github.com/powerline/fonts)
@@ -27,16 +40,15 @@ You can just download `nerd-fonts`, and run: (you may not need `powerline/fonts`
 ./install.sh DejaVuSansMono
 ```
 
-#### Haskell
+
+## Haskell
 
 - [neco-ghc](https://github.com/eagletmt/neco-ghc): ghc-mod completion
 - [ghcmod-vim](https://github.com/eagletmt/ghcmod-vim)
 - [stylish-haskell](https://github.com/jaspervdj/stylish-haskell)
 - [haskell-vim](https://github.com/neovimhaskell/haskell-vim)
 
-You need [vimproc.vim](https://github.com/Shougo/vimproc.vim) installed, see: [Manual Install](https://github.com/Shougo/vimproc.vim#manual-install)
-
-1. Clone vimproc.vim
-2. run `make`
-3. Copy `autoload`, `lib` and `plugin` to `~/.vim/`
+```
+cabal install apply-refact hlint stylish-haskell hasktags hoogle ghc-mod
+```
 

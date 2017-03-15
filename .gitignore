@@ -1,7 +1,5 @@
 *~
 *.pyc
-vim/plg/
 
-vim/autoload
-vim/lib
-vim/plugin
+vim/plugged/
+

@@ -1,11 +1,25 @@
+module Test where
 
-f x y = case x of
-          1 -> g y
-    where
-        g x = x + 1
+import Data.List
 
-x = if True
+{- Syntax -}
+
+-- redundant
+f :: Int
+f = if True
        then 1
        else 2
+
+f' :: Int
+f' = if True
+        then 1
+        else 1
+
+f1 :: Int
+f1 = (1 + 2)
+
+-- error
+g :: Int
+g = "aaa"
 
 
