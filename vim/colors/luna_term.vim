@@ -113,8 +113,9 @@ hi pythonDot                ctermfg=011 ctermbg=NONE cterm=NONE
 hi pythonParameters         ctermfg=149 ctermbg=NONE cterm=NONE
 hi pythonClassParameters    ctermfg=149 ctermbg=NONE cterm=NONE
 hi pythonClass              ctermfg=035 ctermbg=NONE cterm=NONE
-hi pythonBuiltinFunc        ctermfg=129 ctermbg=NONE cterm=NONE
+hi pythonBuiltinFunc        ctermfg=135 ctermbg=NONE cterm=NONE
 hi pythonSelfPara           ctermfg=169 ctermbg=NONE cterm=NONE
+hi pythonBuiltinObj         ctermfg=169 ctermbg=NONE cterm=NONE
 "
 " ---------------------------------------------------------------------
 "  Ruby Specifics

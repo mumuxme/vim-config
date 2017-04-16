@@ -80,6 +80,9 @@ Plug 'eagletmt/ghcmod-vim'
 Plug 'jaspervdj/stylish-haskell'
 Plug 'neovimhaskell/haskell-vim'    " Syntax Highlighting and Indentation
 
+" python
+Plug 'davidhalter/jedi-vim', {'do' : 'git submodule update --init'}
+
 call plug#end()
 
 " =========== Airline =========== "
@@ -112,6 +115,7 @@ set statusline+=%*
 let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
 let g:syntastic_scala_checkers = ['']        " diasbled
+let g:syntastic_python_checkers = ['']
 "" Neomake
 "autocmd! BufWritePost * Neomake
 
@@ -143,7 +147,7 @@ let g:neocomplete#sources#syntax#min_keyword_length = 2
 "inoremap <expr><C-g>     neocomplete#undo_completion()
 "inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-" ===========  haskell ==========="
+" =========== haskell ==========="
 "let g:ghcmod_hlint_options = ['--ignore=Redundant $']
 
 " see: https://github.com/eagletmt/ghcmod-vim/wiki/Customize#auto-checking-on-writing
@@ -202,6 +206,13 @@ let g:tagbar_type_haskell = {
     \ }
 \ }
 
+" =========== python ==========="
+" disable docstring window popup during completion
+autocmd FileType python setlocal completeopt-=preview
+" python syntax
+let b:python_version_2 = 0
+let python_highlight_all = 1
+
 
 " ============================================================================ "
 "                               Default setting
@@ -215,14 +226,14 @@ set softtabstop=4   " 编辑模式时退格键退回缩进长度
 set shiftwidth=4    " 每级缩进长度
 set autoindent
 set number          " show lines
-set showcmd		      " Show (partial) command in status line.
-set showmatch		    " Show matching brackets.
-set ignorecase		  " Do case insensitive matching
-set smartcase		    " Do smart case matching
-set incsearch		    " Incremental search
-set autowrite		    " Automatically save before commands like :next and :make
+set showcmd	        " Show (partial) command in status line.
+set showmatch       " Show matching brackets.
+set ignorecase      " Do case insensitive matching
+set smartcase       " Do smart case matching
+set incsearch       " Incremental search
+set autowrite       " Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
-set mouse=a		      " Enable mouse usage (all modes)
+set mouse=a         " Enable mouse usage (all modes)
 
 set ruler           " 在状态行上显示光标所在位置的行号和列号
 set errorbells
@@ -298,6 +309,9 @@ else
     colorscheme luna_term
 endif
 
+set wildmenu
+set wildmode=longest,list,full
+
 " ============================================================================ "
 "                               hot_key(shortcut_key)
 " ============================================================================ "
@@ -321,8 +335,8 @@ autocmd FileType racket map <buffer> <F8> :!racket -f %:p -il xrepl<CR>
 autocmd FileType racket map <buffer> <F9> :!racket %:p<CR>
 
 " plugin
-map <F2> :NERDTreeToggle<CR>
-nmap <F3> :TagbarToggle<CR>
+map <F3> :NERDTreeToggle<CR>
+nmap <F4> :TagbarToggle<CR>
 
 nnoremap > gt       " Next tab
 nnoremap < gT       " Prior tab

@@ -4,8 +4,7 @@ Vimrc
 - os: debian
 - my vim version: 8.0
 
-
-## NOTE
+#### NOTE
 
 - Need `exuberant-ctags` installed.
 
