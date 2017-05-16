@@ -51,22 +51,22 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'vim-syntastic/syntastic'
 "Plug 'neomake/neomake'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'ryanoasis/vim-devicons'
 
 Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
+"Plug 'scrooloose/nerdtree'
+"Plug 'majutsushi/tagbar'
 
 Plug 'vim-scripts/vim-auto-save'
 Plug 'ervandew/supertab'
-Plug 'antoyo/vim-licenses'
+"Plug 'antoyo/vim-licenses'
 "Plug 'luochen1990/rainbow'
 
 " git
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'tpope/vim-fugitive'
 
 "" (lisp(s))
 "Plug 'wlangstroth/vim-racket'
@@ -75,35 +75,16 @@ Plug 'tpope/vim-fugitive'
 "Plug 'jez/vim-better-sml'
 
 " haskell
-Plug 'eagletmt/neco-ghc'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'jaspervdj/stylish-haskell'
-Plug 'neovimhaskell/haskell-vim'    " Syntax Highlighting and Indentation
+"Plug 'eagletmt/neco-ghc'
+"Plug 'eagletmt/ghcmod-vim'
+"Plug 'jaspervdj/stylish-haskell'
+"Plug 'neovimhaskell/haskell-vim'    " Syntax Highlighting and Indentation
 
 " python
 Plug 'davidhalter/jedi-vim', {'do' : 'git submodule update --init'}
 
 call plug#end()
 
-" =========== Airline =========== "
-" see: https://github.com/vim-airline/vim-airline/wiki/Screenshots
-let g:airline_theme='kolor'
-"let g:airline_theme='bubblegum'
-
-let g:airline_powerline_fonts = 1
-"if !exists('g:airline_symbols')
-"  let g:airline_symbols = {}
-"endif
-"let g:airline_symbols.space = "\ua0"
-"let g:airline_left_sep = '▶'
-"let g:airline#extensions#tagbar#flags = 's'
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '>'
-
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1        " enable smarter tab line
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " =========== Syntax checker =========== "
 " Syntastic
@@ -147,64 +128,6 @@ let g:neocomplete#sources#syntax#min_keyword_length = 2
 "inoremap <expr><C-g>     neocomplete#undo_completion()
 "inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-" =========== haskell ==========="
-"let g:ghcmod_hlint_options = ['--ignore=Redundant $']
-
-" see: https://github.com/eagletmt/ghcmod-vim/wiki/Customize#auto-checking-on-writing
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-"autocmd BufWritePost *.hs call s:check_and_lint()
-"function! s:check_and_lint()
-"  let l:qflist = ghcmod#make('check')
-"  call extend(l:qflist, ghcmod#make('lint'))
-"  call setqflist(l:qflist)
-"  cwindow
-"  if empty(l:qflist)
-"    echo "No errors found"
-"  endif
-"endfunction
-
-" haskell-vim
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-
-" tagbar
-" see: https://github.com/majutsushi/tagbar/wiki#haskell
-let g:tagbar_type_haskell = {
-    \ 'ctagsbin'  : 'hasktags',
-    \ 'ctagsargs' : '-x -c -o-',
-    \ 'kinds'     : [
-        \  'm:modules:0:1',
-        \  'd:data: 0:1',
-        \  'd_gadt: data gadt:0:1',
-        \  't:type names:0:1',
-        \  'nt:new types:0:1',
-        \  'c:classes:0:1',
-        \  'cons:constructors:1:1',
-        \  'c_gadt:constructor gadt:1:1',
-        \  'c_a:constructor accessors:1:1',
-        \  'ft:function types:1:1',
-        \  'fi:function implementations:0:1',
-        \  'o:others:0:1'
-    \ ],
-    \ 'sro'        : '.',
-    \ 'kind2scope' : {
-        \ 'm' : 'module',
-        \ 'c' : 'class',
-        \ 'd' : 'data',
-        \ 't' : 'type'
-    \ },
-    \ 'scope2kind' : {
-        \ 'module' : 'm',
-        \ 'class'  : 'c',
-        \ 'data'   : 'd',
-        \ 'type'   : 't'
-    \ }
-\ }
 
 " =========== python ==========="
 " disable docstring window popup during completion
@@ -251,9 +174,7 @@ set foldlevel=99        " 默认展开所有代码
 " font and enconding
 set encoding=utf-8
 if (has("gui_running"))
-    set guifont=DejaVuSansMonoForPowerline\ Nerd\ Font\ 13
-    "set guifont=DejaVu\ Sans\ Mono\ 14
-    "set guifontwide=AR\ PL\ UKai\ CN\ 14        " 中文字体
+    set guifont=DejaVu\ Sans\ Mono\ 14
 endif
 
 set timeoutlen=1000 ttimeoutlen=0    " fix esc delay in vim <https://www.johnhawthorn.com/2012/09/vi-escape-delays>
@@ -346,34 +267,3 @@ nnoremap < gT       " Prior tab
 " see: http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap // y/<C-R>"<CR>
 
-
-" ============================================================================ "
-"                                   other
-" ============================================================================ "
-
-" ========== auto fcitx ==========
-"From: https://wiki.archlinux.org/index.php/Fcitx_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#Vim
-" 效果不是很好
-let g:input_toggle = 1
-function! Fcitx2en()
-   let s:input_status = system("fcitx-remote")
-   if s:input_status == 2
-      let g:input_toggle = 1
-      let l:a = system("fcitx-remote -c")
-   endif
-endfunction
-
-function! Fcitx2zh()
-   let s:input_status = system("fcitx-remote")
-   if s:input_status != 2 && g:input_toggle == 1
-      let l:a = system("fcitx-remote -o")
-      let g:input_toggle = 0
-   endif
-endfunction
-
-set ttimeoutlen=150
-"退出插入模式
-autocmd InsertLeave * call Fcitx2en()
-"进入插入模式
-"autocmd InsertEnter * call Fcitx2zh()
-" ========== auto fcitx end ==========
